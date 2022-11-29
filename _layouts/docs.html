@@ -2,17 +2,71 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+
 		<title>{{ page.title }}</title>
-		<link rel="stylesheet" href="/assets/css/pico.min.css" />
-		<link rel="stylesheet" href="/assets/css/pico.docs.min.css" />
+
+		<link rel="stylesheet" href="assets/css/pico.min.css" />
+		<link rel="stylesheet" href="assets/css/pico.docs.min.css" />
 	</head>
+	<style>
+		:root:not([data-theme='light']) {
+			--primary: #f93;
+			--secondary: #ff8;
+			--background-color: #201;
+			--nav-background-color: #312;
+		}
+	</style>
 	<body>
 		<nav>
 			<a href="/">Home</a>
 			<a href="/blog/">Blog</a>
 		</nav>
-		<h1>{{ page.title }}</h1>
-		<section>{{ content }}</section>
-		<footer>&copy; to me</footer>
+		<nav class="container-fluid">
+			<ul>
+				<li>
+					<img src="assets/logo.svg" width="150" />
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="/"><small>go to project page</small></a>
+				</li>
+			</ul>
+		</nav>
+
+		<main class="container" id="docs">
+			<aside>
+				<nav>
+					<ul>
+						<li>
+							<a href="#" class="secondary" aria-current="page">Usage</a>
+						</li>
+						<li>
+							<a href="#" class="secondary">Themes</a>
+						</li>
+						<li>
+							<a href="#" class="secondary">Customization</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<div role="document">
+				<section id="start">
+					<div class="headings">
+						<h1>{{ page.title }}</h1>
+						<h2>{{ page.date }}</h2>
+					</div>
+
+					{{ content }}
+				</section>
+				<footer>
+					<hr />
+					<p>
+						<small>&copy; to me</small>
+					</p>
+				</footer>
+			</div>
+		</main>
 	</body>
 </html>
