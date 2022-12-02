@@ -17,10 +17,13 @@ html {
 }
 
 body > nav {
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    background-color: $purple-mid;
+    background-color: #5348;
+    backdrop-filter: blur(5px);
 }
 body > nav > ul {
     display: flex;
