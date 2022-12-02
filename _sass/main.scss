@@ -1,0 +1,69 @@
+$purple-dark: #201;
+$purple-mid: #312;
+$purple-light: #534;
+$purple-lighter: #867;
+$orange: #f93;
+$yellow: #ff8;
+
+$font: 'mononoki', sans-serif;
+$size: 1.5;
+
+/**************************************************************/
+
+html {
+    background-color: $purple-dark;
+    font-family: $font;
+    color: white;
+}
+
+body > nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: $purple-mid;
+}
+body > nav > ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+body > nav a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all 0.1s;
+}
+a:hover {
+    background-color: $purple-light;
+    text-decoration: underline;
+}
+main {
+    max-width: 70rem;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: 25% auto;
+    gap: 5rem;
+}
+aside > nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+aside > nav a {
+    padding: 1rem 2rem;
+}
+footer {
+    border-top: 0.1rem solid $orange;
+    padding: 1rem;
+    color: $purple-lighter;
+    font-size: small;
+    text-align: center;
+}
+pre {
+    background-color: $purple-mid;
+}
