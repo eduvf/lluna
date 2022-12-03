@@ -1,6 +1,6 @@
 - title: home
   icon: moon
-  url: /
+  url: index.html
 
 - title: docs
   icon: book-open
