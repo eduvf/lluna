@@ -1,0 +1,15 @@
+- title: home
+  icon: moon
+  url: /
+
+- title: docs
+  icon: book-open
+  url: docs.html
+
+- title: play↗
+  icon: terminal
+  url: https://eduvf.github.io/lluna-js
+
+- title: github↗
+  icon: github
+  url: https://github.com/eduvf/lluna

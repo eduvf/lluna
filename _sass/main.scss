@@ -1,0 +1,141 @@
+$purple-dark: #201;
+$purple-dark-filter: #2018;
+$purple-mid: #312;
+$purple-light: #534;
+$purple-lighter: #867;
+$orange: #f93;
+$yellow: #ff8;
+
+$font: 'Inter', system-ui, sans-serif;
+$mono: 'mononoki', monospace;
+$size: 1.2rem;
+
+/**************************************************************/
+
+html {
+    background-color: $purple-dark;
+    font-family: $font;
+    font-size: $size;
+    color: $yellow;
+}
+
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all .2s;
+    &:hover {
+        color: $yellow;
+        background-color: $purple-mid;
+        text-decoration: underline;
+    }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    background-color: $purple-dark-filter;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid $orange;
+    img {
+        margin: 0 1rem;
+    }
+    a { padding: 1rem 2rem; }
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-family: $mono;
+}
+
+main {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+pre {
+    background-color: $purple-mid;
+    border: 1px solid $orange;
+    padding: 1rem;
+}
+
+code {
+    font-family: $mono;
+    color: $orange;
+}
+
+hr {
+    border-color: $orange;
+}
+
+footer {
+    border-top: 1px solid $orange;
+    font-size: small;
+    text-align: center;
+    padding: 2rem;
+}
+
+
+/*
+body > nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #5348;
+    backdrop-filter: blur(5px);
+}
+body > nav > ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+body > nav a {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all 0.1s;
+}
+a:hover {
+    background-color: $purple-light;
+    text-decoration: underline;
+}
+main {
+    max-width: 70rem;
+    margin: 5rem auto;
+    display: grid;
+    grid-template-columns: 25% auto;
+    gap: 5rem;
+}
+aside > nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+aside > nav a {
+    padding: 1rem 2rem;
+}
+footer {
+    border-top: 0.1rem solid $orange;
+    padding: 1rem;
+    color: $purple-lighter;
+    font-size: small;
+    text-align: center;
+}
+pre {
+    background-color: $purple-mid;
+}
+*/

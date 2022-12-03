@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>lluna project &mdash; {{ page.title }}</title>
+
+		<link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/mononoki.min.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<script src="https://unpkg.com/feather-icons"></script>
+	<body>
+		<nav>
+			<img src="assets/logo.svg" alt="" width="30" />
+
+			{% for item in site.data.menu %}
+			<a href="{{ item.url }}">
+				<i data-feather="{{ item.icon }}"></i>
+				{{ item.title }}
+			</a>
+			{% endfor %}
+		</nav>
+
+		<main>{{ content }}</main>
+
+		<footer>
+			Made with <i data-feather="heart"></i> by
+			<a href="https://github.com/eduvf">EduVF</a>.
+		</footer>
+
+		<script>
+			feather.replace();
+		</script>
+	</body>
+</html>
