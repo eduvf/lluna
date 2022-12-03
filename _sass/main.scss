@@ -47,8 +47,11 @@ nav {
 
 header {
     padding: 2rem;
-    font-family: $mono;
     text-align: center;
+}
+
+h1 {
+    font-family: $mono;
 }
 
 main {
@@ -57,8 +60,26 @@ main {
     padding: 1rem;
 }
 
-hr {
+pre {
+    background-color: $purple-mid;
+    border: 1px solid $orange;
+    padding: 1rem;
+}
+
+code {
+    font-family: $mono;
     color: $orange;
+}
+
+hr {
+    border-color: $orange;
+}
+
+footer {
+    border-top: 1px solid $orange;
+    font-size: small;
+    text-align: center;
+    padding: 2rem;
 }
 
 

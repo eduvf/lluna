@@ -6,6 +6,12 @@ layout: default
 
 # lluna language documentation
 
+> **WIP**
+>
+> This page is still in my To-Do list...
+
+---
+
 All programs in _lluna_ are just a single **expression**, starting with `(` and ending with `)`.
 
 ```
@@ -63,3 +69,5 @@ And with that, it's time to introduce an essential core of the language: a funct
 ```
 (func arg1 arg2 arg3)
 ```
+
+> **WIP**
