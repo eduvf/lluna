@@ -1,9 +1,10 @@
 ---
-layout: docs
-title: lluna lang docs
+title: docs
+permalink: /docs
+layout: default
 ---
 
-# lluna lang documentation
+# lluna language documentation
 
 All programs in _lluna_ are just a single **expression**, starting with `(` and ending with `)`.
 

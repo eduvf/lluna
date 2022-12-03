@@ -1,21 +1,68 @@
 $purple-dark: #201;
+$purple-dark-filter: #2018;
 $purple-mid: #312;
 $purple-light: #534;
 $purple-lighter: #867;
 $orange: #f93;
 $yellow: #ff8;
 
-$font: 'mononoki', sans-serif;
-$size: 1.5;
+$font: 'Inter', system-ui, sans-serif;
+$mono: 'mononoki', monospace;
+$size: 1.2rem;
 
 /**************************************************************/
 
 html {
     background-color: $purple-dark;
     font-family: $font;
-    color: white;
+    font-size: $size;
+    color: $yellow;
 }
 
+a {
+    color: $orange;
+    text-decoration: none;
+    transition: all .2s;
+    &:hover {
+        color: $yellow;
+        background-color: $purple-mid;
+        text-decoration: underline;
+    }
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    background-color: $purple-dark-filter;
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid $orange;
+    img {
+        margin: 0 1rem;
+    }
+    a { padding: 1rem 2rem; }
+}
+
+header {
+    padding: 2rem;
+    font-family: $mono;
+    text-align: center;
+}
+
+main {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+hr {
+    color: $orange;
+}
+
+
+/*
 body > nav {
     position: sticky;
     top: 0;
@@ -70,3 +117,4 @@ footer {
 pre {
     background-color: $purple-mid;
 }
+*/
