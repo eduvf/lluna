@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>lluna project &mdash; {{ page.title }}</title>
+    <title>lluna project &mdash; {{ page.title }}</title>
 
-		<link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/mononoki.min.css" />
-		<link rel="stylesheet" href="assets/css/style.css" />
-	</head>
-	<script src="https://unpkg.com/feather-icons"></script>
-	<body>
-		<nav>
-			<img src="assets/logo.svg" alt="" width="30" />
+    <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
 
-			{% for item in site.data.menu %}
-			<a href="{{ item.url }}">
-				<i data-feather="{{ item.icon }}"></i>
-				{{ item.title }}
-			</a>
-			{% endfor %}
-		</nav>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/ibm-plex-mono.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/ibm-plex-sans.min.css" />
 
-		<main>{{ content }}</main>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <!-- <img src="assets/logo.svg" alt="" width="30" /> -->
 
-		<footer>
-			Made with <i data-feather="heart"></i> by
-			<a href="https://github.com/eduvf">EduVF</a>.
-		</footer>
+      {% for item in site.data.menu %}
+      <a href="{{ item.url }}" class="{% if page.title == item.title %}current{% endif %}">
+        <svg class="feather">
+          <use href="assets/feather-sprite.svg#{{ item.icon }}" />
+        </svg>
+        {{ item.title }}
+      </a>
+      {% endfor %}
+    </nav>
 
-		<script>
-			feather.replace();
-		</script>
-	</body>
+    <main>{{ content }}</main>
+
+    <footer>
+      Made with
+      <svg class="feather">
+        <use href="assets/feather-sprite.svg#heart" />
+      </svg>
+      by <a href="https://github.com/eduvf">EduVF</a>.
+    </footer>
+
+    <!-- Run highlighter -->
+    <script>
+      // Taken from https://github.com/eduvf/lluna-js/blob/main/docs/script.js
+      const highlight = (editor) => {
+        let code = editor.textContent;
+
+        code = code
+          .replace(/(\(\s*|^\s*)([^\s\(\)\,]+)/gm, '$1<span style="font-weight: bold; color: var(--orange);">$2</span>')
+          .replace(/(,[^\n]*$)/gm, '<span style="font-style: italic; color: var(--purple-lighter);">$1</span>')
+          .replace(/('.*?'|\d*\.\d+|\b\d+\.?)/g, '<span style="font-weight: bold;">$1</span>');
+
+        editor.innerHTML = code;
+      };
+
+      //   Replace
+      const pre = document.getElementsByTagName("pre");
+      for (let p of pre) {
+        highlight(p);
+      }
+    </script>
+  </body>
 </html>

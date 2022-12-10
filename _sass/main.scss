@@ -1,14 +1,38 @@
-$purple-dark: #201;
 $purple-dark-filter: #2018;
+$purple-dark: #201;
 $purple-mid: #312;
 $purple-light: #534;
 $purple-lighter: #867;
 $orange: #f93;
 $yellow: #ff8;
 
-$font: 'Inter', system-ui, sans-serif;
-$mono: 'mononoki', monospace;
+$font: "IBM Plex Sans", system-ui, sans-serif;
+$mono: "IBM Plex Mono", monospace;
 $size: 1.2rem;
+
+$breakpoint: 700px;
+
+:root {
+    --purple-dark-filter: #2018;
+    --purple-dark: #201;
+    --purple-mid: #312;
+    --purple-light: #534;
+    --purple-lighter: #867;
+    --orange: #f93;
+    --yellow: #ff8;
+}
+
+/**************************************************************/
+
+.feather {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
 
 /**************************************************************/
 
@@ -21,8 +45,7 @@ html {
 
 a {
     color: $orange;
-    text-decoration: none;
-    transition: all .2s;
+    transition: all 0.2s;
     &:hover {
         color: $yellow;
         background-color: $purple-mid;
@@ -35,14 +58,28 @@ nav {
     top: 0;
     width: 100%;
     display: flex;
+    justify-content: center;
     align-items: stretch;
+    flex-wrap: wrap;
     background-color: $purple-dark-filter;
     backdrop-filter: blur(5px);
     border-bottom: 1px solid $orange;
     img {
         margin: 0 1rem;
     }
-    a { padding: 1rem 2rem; }
+    a {
+        font-family: $mono;
+        font-style: italic;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        @media (min-width: $breakpoint) {
+            padding: 1rem 2rem;
+        }
+        &.current {
+            color: $yellow;
+            text-decoration: underline;
+        }
+    }
 }
 
 header {
@@ -50,8 +87,15 @@ header {
     text-align: center;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $mono;
+    text-align: center;
+    font-style: italic;
 }
 
 main {
@@ -64,6 +108,7 @@ pre {
     background-color: $purple-mid;
     border: 1px solid $orange;
     padding: 1rem;
+    font-family: $mono;
 }
 
 code {
@@ -81,61 +126,3 @@ footer {
     text-align: center;
     padding: 2rem;
 }
-
-
-/*
-body > nav {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    background-color: #5348;
-    backdrop-filter: blur(5px);
-}
-body > nav > ul {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-body > nav a {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-a {
-    color: $orange;
-    text-decoration: none;
-    transition: all 0.1s;
-}
-a:hover {
-    background-color: $purple-light;
-    text-decoration: underline;
-}
-main {
-    max-width: 70rem;
-    margin: 5rem auto;
-    display: grid;
-    grid-template-columns: 25% auto;
-    gap: 5rem;
-}
-aside > nav {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-}
-aside > nav a {
-    padding: 1rem 2rem;
-}
-footer {
-    border-top: 0.1rem solid $orange;
-    padding: 1rem;
-    color: $purple-lighter;
-    font-size: small;
-    text-align: center;
-}
-pre {
-    background-color: $purple-mid;
-}
-*/

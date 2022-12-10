@@ -6,7 +6,7 @@ layout: default
 
 <header>
 	<img src="assets/logo.svg" alt="" />
-	<h1><i>lluna project</i></h1>
+	<h1>(( lluna project ))</h1>
 </header>
 
 ---
@@ -17,20 +17,21 @@ layout: default
 
 ---
 
-_Take a look at it!_
+### _Take a look at it!_
 
 ```
 (
 , calculate recursively the factorial of a number
-: f (~ n (
-    : r
-    ? (< 0 n) (
-        : r (* n (f (- n 1)))
-    )(
-        : r 1
-    )
+. f (~ n (
+	? (< 0 n) (
+		* n (f (- n 1))
+	)(
+		1
+	)
 ))
 
--> (f 10)
+> (f 10)
 )
 ```
+
+Do you want to know how it works? --- [Go to the docs!](/docs)
