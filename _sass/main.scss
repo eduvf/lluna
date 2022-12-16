@@ -1,11 +1,3 @@
-$purple-dark-filter: #2018;
-$purple-dark: #201;
-$purple-mid: #312;
-$purple-light: #534;
-$purple-lighter: #867;
-$orange: #f93;
-$yellow: #ff8;
-
 $font: "IBM Plex Sans", system-ui, sans-serif;
 $mono: "IBM Plex Mono", monospace;
 $size: 1.2rem;
@@ -37,54 +29,64 @@ $breakpoint: 700px;
 /**************************************************************/
 
 html {
-    background-color: $purple-dark;
+    background-color: var(--purple-dark);
     font-family: $font;
     font-size: $size;
-    color: $yellow;
+    color: var(--yellow);
 }
 
 a {
-    color: $orange;
     transition: all 0.2s;
+    color: var(--orange);
     &:hover {
-        color: $yellow;
-        background-color: $purple-mid;
+        background-color: var(--purple-mid);
         text-decoration: underline;
+        color: var(--yellow);
     }
 }
 
 nav {
-    position: sticky;
-    top: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    background-color: $purple-dark-filter;
+    background-color: var(--purple-dark-filter);
     backdrop-filter: blur(5px);
-    border-bottom: 1px solid $orange;
+    border-bottom: 1px solid var(--orange);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
     img {
         margin: 0 1rem;
     }
     a {
+        text-decoration: none;
         font-family: $mono;
         font-style: italic;
         padding: 0.5rem 1rem;
-        text-decoration: none;
-        @media (min-width: $breakpoint) {
-            padding: 1rem 2rem;
-        }
         &.current {
-            color: $yellow;
-            text-decoration: underline;
+            font-weight: bold;
+            color: var(--yellow);
+        }
+        span {
+            display: none;
+        }
+    }
+    @media (min-width: $breakpoint) {
+        position: sticky;
+        top: 0;
+        a {
+            padding: 1rem 2rem;
+            span {
+                display: inline;
+            }
         }
     }
 }
 
 header {
-    padding: 2rem;
     text-align: center;
+    @media (min-width: $breakpoint) {
+        padding: 2rem;
+    }
 }
 
 h1,
@@ -100,29 +102,29 @@ h6 {
 
 main {
     max-width: 50rem;
-    margin: 0 auto;
     padding: 1rem;
+    margin: 0 auto;
 }
 
 pre {
-    background-color: $purple-mid;
-    border: 1px solid $orange;
-    padding: 1rem;
+    background-color: var(--purple-mid);
     font-family: $mono;
+    padding: 1rem;
+    border: 1px solid var(--orange);
 }
 
 code {
     font-family: $mono;
-    color: $orange;
+    color: var(--orange);
 }
 
 hr {
-    border-color: $orange;
+    border-color: var(--orange);
 }
 
 footer {
-    border-top: 1px solid $orange;
-    font-size: small;
+    border-top: 1px solid var(--orange);
     text-align: center;
+    font-size: small;
     padding: 2rem;
 }

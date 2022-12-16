@@ -22,7 +22,7 @@
         <svg class="feather">
           <use href="assets/feather-sprite.svg#{{ item.icon }}" />
         </svg>
-        {{ item.title }}
+        <span>{{ item.title }}</span>
       </a>
       {% endfor %}
     </nav>
@@ -30,11 +30,8 @@
     <main>{{ content }}</main>
 
     <footer>
-      Made with
-      <svg class="feather">
-        <use href="assets/feather-sprite.svg#heart" />
-      </svg>
-      by <a href="https://github.com/eduvf">EduVF</a>.
+      Last updated: {{ site.time | date: '%Y %B %e' }}<br />
+      By <a href="https://github.com/eduvf">Edu VF</a>
     </footer>
 
     <!-- Run highlighter -->

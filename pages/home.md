@@ -6,7 +6,7 @@ layout: default
 
 <header>
 	<img src="assets/logo.svg" alt="" />
-	<h1>(( lluna project ))</h1>
+	<h1>lluna project</h1>
 </header>
 
 ---
