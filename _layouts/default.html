@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>lluna project &mdash; {{ page.title }}</title>
 
     <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
@@ -14,41 +15,61 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <nav>
-      <!-- <img src="assets/logo.svg" alt="" width="30" /> -->
-
-      {% for item in site.data.menu %}
-      <a href="{{ item.url }}" class="{% if page.title == item.title %}current{% endif %}">
-        <svg class="feather">
-          <use href="assets/feather-sprite.svg#{{ item.icon }}" />
-        </svg>
-        <span>{{ item.title }}</span>
+    <header>
+      <a href="/">
+        <img src="assets/twemoji_moon.svg" alt="" />
+        <h2>lluna project</h2>
       </a>
-      {% endfor %}
-    </nav>
 
-    <main>{{ content }}</main>
+      <nav>
+        {% for item in site.data.menu %}
+        <a href="{{ item.url }}" class="{% if page.title == item.title %}current{% endif %}">
+          <svg class="feather">
+            <use href="assets/feather-sprite.svg#{{ item.icon }}" />
+          </svg>
+          <span>{{ item.title }}</span>
+        </a>
+        {% endfor %}
+      </nav>
 
-    <footer>
-      Last updated: {{ site.time | date: '%Y %B %e' }}<br />
-      By <a href="https://github.com/eduvf">Edu VF</a>
-    </footer>
+      {% if page.toc %}
+      <details open>
+        <summary>table of contents</summary>
+        {{ content | toc_only }}
+      </details>
+      {% endif %}
+    </header>
+
+    <main>
+      <div>{{ content }}</div>
+
+      <footer>
+        Last updated: {{ site.time | date: '%Y %B %e' }}<br />
+        By <a href="https://github.com/eduvf">EduVF</a>
+      </footer>
+    </main>
 
     <!-- Run highlighter -->
     <script>
       // Taken from https://github.com/eduvf/lluna-js/blob/main/docs/script.js
-      const highlight = (editor) => {
-        let code = editor.textContent;
+      const styleReplace = [
+        // comments
+        [/(,.*$)/, '<span style="color: var(--purple-lighter)"><i>$1</i></span>'],
+        // strings
+        [/('.*?')/, "<b><i>$2</i></b>"],
+        // numbers
+        [/(-?\d+\.?\d*|-?\d*\.\d+)/, "<b>$3</b>"],
+        // functions (f ...)
+        [/(\(\s*|^\s*)([^\s(),']+)/, '$4<span style="color: var(--orange)"><b>$5</b></span>'],
+      ];
+      const buildRegex = new RegExp(styleReplace.map((e) => e[0].source).join("|"), "gm");
+      const buildString = styleReplace.map((e) => e[1]).join("");
 
-        code = code
-          .replace(/(\(\s*|^\s*)([^\s\(\)\,]+)/gm, '$1<span style="font-weight: bold; color: var(--orange);">$2</span>')
-          .replace(/(,[^\n]*$)/gm, '<span style="font-style: italic; color: var(--purple-lighter);">$1</span>')
-          .replace(/('.*?'|\d*\.\d+|\b\d+\.?)/g, '<span style="font-weight: bold;">$1</span>');
-
-        editor.innerHTML = code;
+      const highlight = (e) => {
+        e.innerHTML = e.textContent.replace(buildRegex, buildString);
       };
 
-      //   Replace
+      // Replace
       const pre = document.getElementsByTagName("pre");
       for (let p of pre) {
         highlight(p);

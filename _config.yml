@@ -1,1 +1,7 @@
-exclude: ["Gemfile", "Gemfile.lock", "docker-compose.yml"]
+exclude:
+    - "Gemfile"
+    - "Gemfile.lock"
+    - "docker-compose.yml"
+    - "README.md"
+plugins:
+    - jekyll-toc

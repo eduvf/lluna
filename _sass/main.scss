@@ -1,8 +1,8 @@
 $font: "IBM Plex Sans", system-ui, sans-serif;
 $mono: "IBM Plex Mono", monospace;
-$size: 1.2rem;
+$size: 12pt;
 
-$breakpoint: 700px;
+$breakpoint: 900px;
 
 :root {
     --purple-dark-filter: #2018;
@@ -35,91 +35,183 @@ html {
     color: var(--yellow);
 }
 
-a {
-    transition: all 0.2s;
-    color: var(--orange);
-    &:hover {
-        background-color: var(--purple-mid);
-        text-decoration: underline;
-        color: var(--yellow);
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    @media (max-width: $breakpoint) {
+        flex-direction: column;
     }
 }
 
-nav {
-    width: 100%;
-    background-color: var(--purple-dark-filter);
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid var(--orange);
+header {
     display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
-    img {
-        margin: 0 1rem;
-    }
-    a {
+    flex-direction: column;
+    border-bottom: 1px solid var(--orange);
+    font-family: $mono;
+    & > a {
         text-decoration: none;
-        font-family: $mono;
-        font-style: italic;
-        padding: 0.5rem 1rem;
-        &.current {
-            font-weight: bold;
-            color: var(--yellow);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        gap: 1rem;
+        img {
+            max-width: 4rem;
         }
-        span {
-            display: none;
+        h2 {
+            margin: 0;
+            font-style: italic;
+        }
+    }
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        text-align: center;
+        a {
+            padding: 1rem;
+            text-decoration: none;
+            span {
+                display: block;
+            }
         }
     }
     @media (min-width: $breakpoint) {
-        position: sticky;
-        top: 0;
-        a {
-            padding: 1rem 2rem;
-            span {
+        max-width: 20rem;
+        border: 0;
+        border-right: 1px solid var(--orange);
+        & > a {
+            flex-direction: column;
+            padding: 2rem;
+            img {
+                max-width: 8rem;
+            }
+        }
+        nav {
+            flex-direction: column;
+            a span {
                 display: inline;
             }
         }
     }
 }
 
-header {
-    text-align: center;
-    @media (min-width: $breakpoint) {
-        padding: 2rem;
+a {
+    transition: all 0.2s;
+    color: var(--orange);
+    &:hover {
+        background-color: var(--purple-mid);
+        color: var(--yellow);
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: $mono;
+// nav {
+//     width: 100%;
+//     background-color: var(--purple-dark-filter);
+//     backdrop-filter: blur(5px);
+//     border-bottom: 1px solid var(--orange);
+//     display: flex;
+//     flex-wrap: wrap;
+//     align-items: stretch;
+//     justify-content: center;
+//     img {
+//         margin: 0 1rem;
+//     }
+//     a {
+//         text-decoration: none;
+//         font-family: $mono;
+//         font-style: italic;
+//         padding: 0.5rem 1rem;
+//         &.current {
+//             font-weight: bold;
+//             color: var(--yellow);
+//         }
+//         span {
+//             display: none;
+//         }
+//     }
+//     @media (min-width: $breakpoint) {
+//         position: sticky;
+//         top: 0;
+//         a {
+//             padding: 1rem 2rem;
+//             span {
+//                 display: inline;
+//             }
+//         }
+//     }
+// }
+
+// aside nav {
+// }
+
+// header {
+//     text-align: center;
+//     h1 {
+//         margin-bottom: 0;
+//     }
+//     @media (min-width: $breakpoint) {
+//         padding: 3rem;
+//     }
+// }
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//     font-family: $mono;
+//     text-align: center;
+//     font-style: italic;
+// }
+
+// main {
+//     max-width: 50rem;
+//     padding: 1rem;
+//     margin: 0 auto;
+// }
+
+// pre {
+//     background-color: var(--purple-mid);
+//     font-family: $mono;
+//     padding: 1rem;
+//     border: 1px solid var(--orange);
+// }
+
+// code {
+//     font-family: $mono;
+//     color: var(--orange);
+// }
+
+// hr {
+//     border-color: var(--orange);
+// }
+
+summary {
+    border-top: 1px solid var(--orange);
     text-align: center;
-    font-style: italic;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+        background-color: var(--purple-mid);
+    }
 }
 
 main {
-    max-width: 50rem;
-    padding: 1rem;
-    margin: 0 auto;
-}
-
-pre {
-    background-color: var(--purple-mid);
-    font-family: $mono;
-    padding: 1rem;
-    border: 1px solid var(--orange);
-}
-
-code {
-    font-family: $mono;
-    color: var(--orange);
-}
-
-hr {
-    border-color: var(--orange);
+    flex: 1;
+    @media (min-width: $breakpoint) {
+        overflow: scroll;
+    }
+    & > div {
+        max-width: $breakpoint;
+        padding: 4rem 2rem;
+        margin: 0 auto;
+    }
 }
 
 footer {
