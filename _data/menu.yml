@@ -1,11 +1,15 @@
-- title: lang
+- title: home
   icon: moon
-  url: lang.html
+  url: index
+
+- title: lang
+  icon: code
+  url: lang
+
+- title: docs
+  icon: book
+  url: docs
 
 - title: play
   icon: terminal
   url: https://eduvf.github.io/lluna-js
-
-- title: github
-  icon: github
-  url: https://github.com/eduvf/lluna

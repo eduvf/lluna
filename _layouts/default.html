@@ -10,44 +10,28 @@
     <link rel="stylesheet" href="https://unpkg.com/sanitize.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/ibm-plex-mono.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/ibm-plex-sans.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/inter.min.css" />
 
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <a href="/">
-        <img src="assets/twemoji_moon.svg" alt="" />
-        <h2>lluna project</h2>
+    <nav>
+      {% for item in site.data.menu %}
+      <a href="{{ item.url }}" class="{% if page.title == item.title %}current{% endif %}">
+        <svg class="feather">
+          <use href="assets/feather-sprite.svg#{{ item.icon }}" />
+        </svg>
+        <span>{{ item.title }}</span>
       </a>
+      {% endfor %}
+    </nav>
 
-      <nav>
-        {% for item in site.data.menu %}
-        <a href="{{ item.url }}" class="{% if page.title == item.title %}current{% endif %}">
-          <svg class="feather">
-            <use href="assets/feather-sprite.svg#{{ item.icon }}" />
-          </svg>
-          <span>{{ item.title }}</span>
-        </a>
-        {% endfor %}
-      </nav>
+    {{ content }}
 
-      {% if page.toc %}
-      <details open>
-        <summary>table of contents</summary>
-        {{ content | toc_only }}
-      </details>
-      {% endif %}
-    </header>
-
-    <main>
-      <div>{{ content }}</div>
-
-      <footer>
-        Last updated: {{ site.time | date: '%Y %B %e' }}<br />
-        By <a href="https://github.com/eduvf">EduVF</a>
-      </footer>
-    </main>
+    <footer>
+      Last updated: {{ site.time | date: '%Y %B %e' }}<br />
+      By <a href="https://github.com/eduvf">EduVF</a>
+    </footer>
 
     <!-- Run highlighter -->
     <script>

@@ -1,8 +1,7 @@
 ---
 title: lang
 permalink: /lang
-layout: default
-toc: true
+layout: page
 ---
 
 # lang
