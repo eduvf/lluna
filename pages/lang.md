@@ -145,4 +145,43 @@ Finally, the function `>` or _print_, outputs the returned values of its argumen
 > | `>.` | _input_ |
 > | `>/` | _file_ |
 
+### types and variables
+
+> WIP
+
 ### tables
+
+Similar to [Lua tables](https://www.lua.org/pil/2.5.html), _lluna_ tables can act like arrays or hash maps. However, there are some differences with their _Lua_ counterparts:
+
+-   tables are zero indexed when used as an array (e.g. the first item has an index of `0`)
+-   negative numbers can be used on array tables to start indexing from the end (e.g. an index of `-1` refers to the last item)
+-   tables can only use either _indexes_ or _keys_, not both at the same time
+
+The last distinction determines whether the table is going to have an internal _array_ or _map_ structure. An _array table_ accesses its items through **integer indexes** (with no gaps in between), while a _map table_ uses string keys that don't have an inherent order.
+
+Tables are constructed with square brackets `[]`. In an _array table_, items placed sequentially, separated by spaces, just like elements within expressions; while in a _map table_ a dot `.` has to precede each _key-value_ pair. After creating the table, items can be added, modified or removed using the function `#` or _tab_. This same function can be as well to get its size (number of items or key-value pairs).
+
+> String keys can omit their quotes if they start with a lower case letter and don't contain whitespace.
+
+```
+, top 5 languages by total number of speakers
+. languages ['English' '官话' 'हिन्दी' 'español' 'français']
+
+, L1 and L2 speakers per language
+. number_speakers [
+    . 'English'  [. iso 'en' . l1 372_900_000 . l2 1_080_000_000]
+    . '官话'      [. iso 'cn' . l1 929_000_000 . l2   198_700_000]
+    . 'हिन्दी'      [. iso 'hi' . l1 343_900_000 . l2   258_300_000]
+    . 'español'  [. iso 'es' . l1 474_700_000 . l2    73_600_000]
+    . 'français' [. iso 'fr' . l1  79_900_000 . l2   194_200_000]
+]
+
+, access values
+# languages     , returns 5
+# languages 0   , returns 'English'
+
+# languages 0 'english'     , modifies the first item
+# languages -1 'العربية'    , adds a sixth item
+
+, the resulting table: ['english' '官话' 'हिन्दी' 'español' 'français' 'العربية']
+```
