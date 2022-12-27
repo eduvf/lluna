@@ -4,7 +4,7 @@ permalink: /
 layout: home
 ---
 
-> #### **_lluna_** ([/ˈʎu.nə/](https://en.wiktionary.org/wiki/lluna) _lit._ moon) is a personal project that envolves many _subprojects_, with the main focus on lerning, minimalism and design.
+> #### **_lluna_** ([/ˈʎu.nə/](https://en.wiktionary.org/wiki/lluna) _lit._ moon) is a personal project that involves many _subprojects_, with the main focus on learning, minimalism and design.
 
 ---
 
