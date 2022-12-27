@@ -108,7 +108,22 @@ pre {
     border: 1px solid var(--purple-light);
 }
 
+code {
+    font-family: $mono;
+    background-color: var(--purple-mid);
+    // border: 1px solid var(--purple-light);
+    padding: 0 0.5rem;
+}
+
 hr {
     max-width: 5rem;
     margin: 4rem auto;
+}
+
+table {
+    margin: 0 auto;
+    td {
+        border: 1px solid var(--purple-light);
+        padding: 0.2rem 0.5rem;
+    }
 }
