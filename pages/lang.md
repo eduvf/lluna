@@ -179,11 +179,11 @@ Tables are constructed with square brackets `[]`. In an _array table_, items pla
 
 , L1 and L2 speakers per language
 . number_speakers [
-    . 'English'  [. iso 'en' . l1 372_900_000 . l2 1_080_000_000]
-    . '官话'      [. iso 'cn' . l1 929_000_000 . l2   198_700_000]
-    . 'हिन्दी'      [. iso 'hi' . l1 343_900_000 . l2   258_300_000]
-    . 'español'  [. iso 'es' . l1 474_700_000 . l2    73_600_000]
-    . 'français' [. iso 'fr' . l1  79_900_000 . l2   194_200_000]
+    . 'English'		[. iso 'en' . l1 372_900_000 . l2 1_080_000_000]
+    . '官话'			[. iso 'cn' . l1 929_000_000 . l2   198_700_000]
+    . 'हिन्दी'			[. iso 'hi' . l1 343_900_000 . l2   258_300_000]
+    . 'español'		[. iso 'es' . l1 474_700_000 . l2    73_600_000]
+    . 'français'	[. iso 'fr' . l1  79_900_000 . l2   194_200_000]
 ]
 
 , access values

@@ -12,12 +12,13 @@ Currently, the main subproject is **_lluna lang_**, _lluna_'s programming langua
 
 ```
 (
+, calculate the factorial of a number recursively
 . factorial (~ n (
-	? (< 0 n) (
-		* n (factorial (- n 1))
-	)(
-		1
-	)
+    ? (< 0 n) (
+        * n (factorial (- n 1))
+    )(
+        1
+    )
 ))
 
 > (factorial 10)
