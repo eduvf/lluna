@@ -33,30 +33,49 @@
       By <a href="https://github.com/eduvf">EduVF</a>
     </footer>
 
-    <!-- Run highlighter -->
     <script>
-      // Taken from https://github.com/eduvf/lluna-js/blob/main/docs/script.js
-      const styleReplace = [
-        // comments
-        [/(,.*$)/, '<span style="color: var(--purple-lighter)"><i>$1</i></span>'],
-        // strings
-        [/('.*?')/, "<b><i>$2</i></b>"],
-        // numbers
-        [/(-?\d+\.?\d*|-?\d*\.\d+)/, "<b>$3</b>"],
-        // functions (f ...)
-        [/(\(\s*|^\s*)([^\s(),']+)/, '$4<span style="color: var(--orange)"><b>$5</b></span>'],
+      // HIGHLIGHT LLUNA CODE
+
+      // Style
+      const STYLE = [
+        // the 's' flag let's match across lines
+        [/^,,,.*,,,/gs, "color: var(--purple-lighter)"],
+        [/^,.*/g, "color: var(--purple-lighter); font-style: italic"],
+        [/^'([^']|\\')*'/g, "font-style: italic"],
+        [/^-?(\d+|\d*\.\d+)[\d\._]*/g, "font-weight: bold"],
+        [/^[!#$%&*+\-\./:<=>?@\\^|~_]+/g, "font-weight: bold; color: var(--orange)"],
+        [/^[a-z]\S+/g, ""],
       ];
-      const buildRegex = new RegExp(styleReplace.map((e) => e[0].source).join("|"), "gm");
-      const buildString = styleReplace.map((e) => e[1]).join("");
 
-      const highlight = (e) => {
-        e.innerHTML = e.textContent.replace(buildRegex, buildString);
-      };
+      const preCollection = document.getElementsByTagName("pre");
+      for (let pre of preCollection) {
+        pre.innerHTML = highlight(pre.textContent);
+      }
 
-      // Replace
-      const pre = document.getElementsByTagName("pre");
-      for (let p of pre) {
-        highlight(p);
+      function highlight(code) {
+        let result = "";
+
+        while (code.length > 0) {
+          for (let t of STYLE) {
+            let regex = t[0];
+            let style = t[1];
+
+            if ((found = regex.exec(code) !== null)) {
+              let text = code.slice(0, regex.lastIndex);
+
+              result += `<span style="${style}">${text}</span>`;
+              console.log(text);
+
+              code = code.slice(regex.lastIndex);
+              regex.lastIndex = 0;
+              break;
+            }
+          }
+          result += code[0];
+          code = code.slice(1);
+        }
+
+        return result;
       }
     </script>
   </body>
