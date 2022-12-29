@@ -28,11 +28,20 @@ $breakpoint: 900px;
 
 /**************************************************************/
 
+[id]::before {
+    content: "";
+    display: block;
+    height: 5rem;
+    margin-top: -5rem;
+    visibility: hidden;
+}
+
 html {
     background-color: var(--purple-dark);
     font-family: $font;
     font-size: $size;
     color: var(--yellow);
+    scroll-behavior: smooth;
 }
 
 main {
@@ -125,5 +134,20 @@ table {
     td {
         border: 1px solid var(--purple-light);
         padding: 0.2rem 0.5rem;
+    }
+}
+
+a button {
+    text-align: center;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    background-color: var(--purple-mid);
+    transition: all 0.5s;
+    &:hover {
+        background-color: var(--purple-light);
+    }
+    svg {
+        color: var(--yellow);
     }
 }

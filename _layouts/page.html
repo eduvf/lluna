@@ -2,4 +2,9 @@
 layout: default
 ---
 
-<main>{{ content }}</main>
+<main>
+  <h1>{{ page.long-title }}</h1>
+  {% include toc.html html=content h_min=2 %}
+  <hr />
+  {{ content }}
+</main>

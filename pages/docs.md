@@ -2,9 +2,13 @@
 title: docs
 permalink: /docs
 layout: page
+
+long-title: documentation
 ---
 
-# docs
+> **This page is WIP**
+>
+> You might find problems with the syntax highlighting and some missing information!
 
 WIP
 
@@ -16,6 +20,20 @@ arithmetic:
 [mul `*`]()
 [div `/`]()
 [mod `%`]()
+
+other math:
+[pow]()
+[sqr]()
+[flr]()
+[rnd]()
+[abs]()
+[min]()
+[max]()
+[sin]()
+[cos]()
+[tan]()
+[rad]()
+[deg]()
 
 comparison:
 [eq `=`]()
@@ -37,8 +55,21 @@ data manipulation:
 [func `~`]()
 [mac `$`]()
 
+type conversion:
+[bool]()
+[int]()
+[flo]()
+[char]()
+[str]()
+
 i/o & system:
 [print `>`]()
 [input `>.`]()
 [file `>/`]()
 [exit `\`]()
+
+info:
+[type]()
+[time]()
+[date]()
+[os]()

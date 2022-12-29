@@ -2,13 +2,13 @@
 title: lang
 permalink: /lang
 layout: page
+
+long-title: the lluna programming language
 ---
 
 > **This page is WIP**
 >
 > You might find problems with the syntax highlighting and some missing information!
-
-# the lluna programming language
 
 **_lluna lang_** (or simply _lluna_) is a minimalistic programming language that aims to be _easy to implement_ and _easy to use_. It's inspired by [Lua](<https://en.wikipedia.org/wiki/Lua_(programming_language)>) in its simplicity and [Lisp](<https://en.wikipedia.org/wiki/Lisp_(programming_language)>) in its syntax, but still has some unique features that differentiates it from the two.
 
@@ -21,6 +21,8 @@ This page contains a general overview of the language that will enable you to st
 By itself, _lluna_ is just a language description, and it isn't a program you can run or test directly. For that, you need an [implementation](https://en.wikipedia.org/wiki/Programming_language_implementation), written in another programming language. Currently, the only working implementation of _lluna_ is **_lluna-js_**, written in JavaScript.
 
 You can try this implementation directly from the browser, going to the [playground page](play).
+
+{% include return-to-top.html %}
 
 ---
 
@@ -47,6 +49,8 @@ at all
 ```
 
 > The comma was chosen because almost all keyboards have a dedicated key for it, regardless of language layout. This makes it more comfortable for non-English speakers to type comments, removing the need to press `shift` to access characters like `;` and `/` (both used for comments in other programming languages).
+
+{% include return-to-top.html %}
 
 ### expressions
 
@@ -87,6 +91,8 @@ If you want to prevent this behavior, it's simple as putting something between t
 , equivalent to
 (+ 1 2 + 3 4 5)
 ```
+
+{% include return-to-top.html %}
 
 ### functions
 
@@ -145,9 +151,13 @@ Finally, the function `>` or _print_, outputs the returned values of its argumen
 > | `>.` | _input_ |
 > | `>/` | _file_ |
 
+{% include return-to-top.html %}
+
 ### types and variables
 
 > WIP
+
+{% include return-to-top.html %}
 
 ### tables
 
@@ -185,3 +195,5 @@ Tables are constructed with square brackets `[]`. In an _array table_, items pla
 
 , the resulting table: ['english' '官话' 'हिन्दी' 'español' 'français' 'العربية']
 ```
+
+{% include return-to-top.html %}
