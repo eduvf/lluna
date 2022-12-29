@@ -3,6 +3,7 @@ $mono: "IBM Plex Mono", monospace;
 $size: 12pt;
 
 $breakpoint: 900px;
+$breakpoint-plus: $breakpoint + 100px;
 
 :root {
     --purple-dark-filter: #2018;
@@ -26,6 +27,12 @@ $breakpoint: 900px;
     fill: none;
 }
 
+.mobile {
+    @media (min-width: $breakpoint-plus) {
+        display: none;
+    }
+}
+
 /**************************************************************/
 
 [id]::before {
@@ -42,6 +49,32 @@ html {
     font-size: $size;
     color: var(--yellow);
     scroll-behavior: smooth;
+}
+
+aside {
+    @media (min-width: $breakpoint-plus) {
+        position: fixed;
+        left: 0;
+        width: fit-content;
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--purple-light);
+        border-left: none;
+    }
+    details {
+        background-color: rgba($color: var(--purple-mid), $alpha: 0.1);
+        summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 0.5rem 1rem;
+            transition: all 0.5s;
+            &:hover {
+                background-color: var(--purple-light);
+            }
+        }
+        > ul {
+            padding: 1rem 2rem;
+        }
+    }
 }
 
 main {
@@ -69,13 +102,16 @@ nav {
     backdrop-filter: blur(5px);
     a {
         text-decoration: none;
-        padding: 1rem 2rem;
         text-align: center;
         font-family: $mono;
-        @media (max-width: $breakpoint) {
-            padding: 0.5rem 1rem;
+        padding: 0.5rem 1rem;
+        span {
+            display: block;
+        }
+        @media (min-width: $breakpoint) {
+            padding: 1rem 2rem;
             span {
-                display: block;
+                display: inline;
             }
         }
     }

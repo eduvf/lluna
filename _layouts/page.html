@@ -4,7 +4,19 @@ layout: default
 
 <main>
   <h1>{{ page.long-title }}</h1>
-  {% include toc.html html=content h_min=2 %}
+
+  <aside>
+    <details>
+      <summary>
+        <svg class="feather">
+          <use href="assets/feather-sprite.svg#bookmark" />
+        </svg>
+        <span class="mobile">table of contents</span>
+      </summary>
+      {% include toc.html html=content h_min=2 %}
+    </details>
+  </aside>
+
   <hr />
   {{ content }}
 </main>
