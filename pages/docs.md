@@ -4,6 +4,7 @@ permalink: /docs
 layout: page
 
 long-title: lluna documentation
+toc: true
 ---
 
 > **This page is WIP**

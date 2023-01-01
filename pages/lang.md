@@ -4,6 +4,7 @@ permalink: /lang
 layout: page
 
 long-title: the lluna programming language
+toc: true
 ---
 
 > **This page is WIP**

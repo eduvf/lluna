@@ -1,7 +1,10 @@
 ---
 title: home
 permalink: /
-layout: home
+layout: page
+
+long-title: lluna project
+icon: assets/twemoji_moon.svg
 ---
 
 **_lluna_** ([/ˈʎu.nə/](https://en.wiktionary.org/wiki/lluna) _lit._ moon) is a personal project that involves many _subprojects_, with the main focus on **learning**, **minimalism** and **design**.
