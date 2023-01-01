@@ -2,17 +2,22 @@ $font: "Inter", system-ui, sans-serif;
 $mono: "IBM Plex Mono", monospace;
 $size: 12pt;
 
-$breakpoint: 900px;
-$breakpoint-plus: $breakpoint + 100px;
+$article: 45rem;
+$sidebar: 10rem;
+$breakpoint: 60rem;
 
 :root {
     --purple-dark-filter: #2018;
     --purple-dark: #201;
     --purple-mid: #312;
     --purple-light: #534;
-    --purple-lighter: #867;
+    --purple-lighter: #978;
     --orange: #f93;
     --yellow: #ff8;
+}
+
+@mixin border {
+    border: 2px solid var(--purple-light);
 }
 
 /**************************************************************/
@@ -25,12 +30,6 @@ $breakpoint-plus: $breakpoint + 100px;
     stroke-linecap: round;
     stroke-linejoin: round;
     fill: none;
-}
-
-.mobile {
-    @media (min-width: $breakpoint-plus) {
-        display: none;
-    }
 }
 
 /**************************************************************/
@@ -51,86 +50,23 @@ html {
     scroll-behavior: smooth;
 }
 
-aside {
-    @media (min-width: $breakpoint-plus) {
-        position: fixed;
-        left: 0;
-        width: fit-content;
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--purple-light);
-        border-left: none;
-    }
-    details {
-        background-color: rgba($color: var(--purple-mid), $alpha: 0.1);
-        summary {
-            cursor: pointer;
-            list-style: none;
-            padding: 0.5rem 1rem;
-            transition: all 0.5s;
-            &:hover {
-                background-color: var(--purple-light);
-            }
-        }
-        > ul {
-            padding: 1rem 2rem;
-        }
-    }
-}
-
-main {
-    max-width: $breakpoint;
-    margin: 5rem auto;
-    padding: 1rem;
-}
-
 a {
-    transition: all 0.5s;
     color: var(--orange);
+    transition: all 0.5s;
     &:hover {
-        background-color: var(--purple-mid);
         color: var(--yellow);
     }
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgba($color: #000, $alpha: 0.2);
-    backdrop-filter: blur(5px);
-    a {
-        text-decoration: none;
-        text-align: center;
-        font-family: $mono;
-        padding: 0.5rem 1rem;
-        span {
-            display: block;
-        }
-        @media (min-width: $breakpoint) {
-            padding: 1rem 2rem;
-            span {
-                display: inline;
-            }
-        }
-    }
-}
-
-header {
+button {
+    @include border;
+    border-radius: 0;
+    color: inherit;
     background-color: var(--purple-mid);
-    padding: 8rem 0 4rem 0;
-    text-align: center;
-    img {
-        max-width: 8rem;
+    transition: all 0.5s;
+    &:hover {
+        background-color: var(--purple-light);
     }
-}
-
-footer {
-    border-top: 1px solid var(--orange);
-    text-align: center;
-    font-size: small;
-    padding: 2rem;
 }
 
 h1,
@@ -144,46 +80,104 @@ h6 {
 }
 
 blockquote {
+    @include border;
     background-color: var(--purple-mid);
     padding: 0.5rem 2rem;
 }
 
-pre {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--purple-light);
+pre,
+code {
+    background-color: var(--purple-mid);
+    font-family: $mono;
 }
 
-code {
-    font-family: $mono;
-    background-color: var(--purple-mid);
-    // border: 1px solid var(--purple-light);
-    padding: 0 0.5rem;
+pre {
+    padding: 1rem;
 }
 
 hr {
     max-width: 5rem;
-    margin: 4rem auto;
+    margin: 5rem auto;
 }
 
 table {
     margin: 0 auto;
     td {
-        border: 1px solid var(--purple-light);
+        @include border;
         padding: 0.2rem 0.5rem;
     }
 }
 
-a button {
-    text-align: center;
+/**************************************************************/
+
+nav {
+    background-color: rgba($color: #000, $alpha: 0.2);
+    backdrop-filter: blur(5px);
+    position: fixed;
     width: 100%;
-    border-radius: 0;
-    border: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    a {
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        span {
+            display: block;
+        }
+        @media (min-width: $breakpoint) {
+            padding: 1rem 2rem;
+            span {
+                display: inline;
+            }
+        }
+        &.current {
+            color: var(--yellow);
+        }
+    }
+}
+
+header {
     background-color: var(--purple-mid);
-    transition: all 0.5s;
-    &:hover {
-        background-color: var(--purple-light);
+    text-align: center;
+    padding: 7rem 0 1rem 0;
+    img {
+        max-width: 8rem;
     }
-    svg {
-        color: var(--yellow);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 5rem;
+    @media (min-width: $breakpoint) {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
     }
+    aside {
+        max-width: $sidebar;
+        ul {
+            padding: 0 1rem;
+            a {
+                text-decoration: none;
+            }
+        }
+        @media (min-width: $breakpoint) {
+            position: sticky;
+            top: 8rem;
+        }
+    }
+    article {
+        width: 100%;
+        max-width: $article;
+    }
+}
+
+footer {
+    border-top: 1px solid var(--orange);
+    text-align: center;
+    font-size: small;
+    padding: 2rem;
 }

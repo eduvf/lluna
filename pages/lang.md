@@ -10,6 +10,8 @@ long-title: the lluna programming language
 >
 > You might find problems with the syntax highlighting and some missing information!
 
+## introduction
+
 **_lluna lang_** (or simply _lluna_) is a minimalistic programming language that aims to be _easy to implement_ and _easy to use_. It's inspired by [Lua](<https://en.wikipedia.org/wiki/Lua_(programming_language)>) in its simplicity and [Lisp](<https://en.wikipedia.org/wiki/Lisp_(programming_language)>) in its syntax, but still has some unique features that differentiates it from the two.
 
 This page contains a general overview of the language that will enable you to start writing some simple _lluna_ code. However, if you want instead a more in depth explanation of how it works, head on to the [documentation page](docs).
@@ -30,17 +32,19 @@ You can try this implementation directly from the browser, going to the [playgro
 
 > This overview assumes you already know a little bit about programming in general.
 
+---
+
 ### comments
 
 Inline **comm**ents start with a **comm**a, and continue until the end of the line.
 
-```
+```lluna
 , this does nothing
 ```
 
 It's possible to create comments that span multiple lines, using three commas to mark the start and the end.
 
-```
+```lluna
 ,,,
 this still
 does nothing
@@ -52,13 +56,15 @@ at all
 
 {% include return-to-top.html %}
 
+---
+
 ### expressions
 
 Everything in _lluna_ is accomplished through the use of **expressions**: lists of elements that are evaluated from start to end, _returning the last one_. If the first element happens to be a **function**, then the rest will be evaluated just like before, but passed as **arguments** to that function. Then the returned value of that expression will be that of the function.
 
 Expressions are created with a pair of parentheses `()` and elements within them are separated by spaces. Assuming that `+` is a function that sums its arguments, let's take a look at the following example:
 
-```
+```lluna
 (+ 1 2 (+ 3 4) 5)
 ```
 
@@ -68,7 +74,7 @@ In order to reduce the amount of parentheses needed to put multiple expressions 
 
 For instance:
 
-```
+```lluna
 , this expression
 ((+ 1 2) (+ 3 4 5))
 
@@ -81,7 +87,7 @@ For instance:
 
 If you want to prevent this behavior, it's simple as putting something between the opening parenthesis and the end of the line.
 
-```
+```lluna
 , this is no longer a multi-expression; just a bad formatted expression
 ( +
     1 2
@@ -94,11 +100,13 @@ If you want to prevent this behavior, it's simple as putting something between t
 
 {% include return-to-top.html %}
 
+---
+
 ### functions
 
 Functionality like variables, user-defined functions, accessing elements from an array, and so on; they're all done with **functions** just like the `+` in the examples above. Most _lluna_ functions accept technically infinite arguments, and always return some value. This is better illustrated with an example:
 
-```
+```lluna
 (
 . factorial (~ n (
     ? (< 0 n) (
@@ -116,7 +124,7 @@ This piece of code calculates the [factorial](https://en.wikipedia.org/wiki/Fact
 
 The function `.` or _var_ creates and assigns a variable. The first argument defines its **name**, and the second one its **value**. In this example, the name is _factorial_, and we're assigning the return value of `(~ n (...))`. The function `~` or _func_ returns, as you may expect, a user-defined function. All the arguments, except for the last one, are the functions' **parameters**. The last argument is its **body**. Here we have just one parameter (`n`).
 
-```
+```lluna
 . factorial (~ n (...))
 ```
 
@@ -128,7 +136,7 @@ If there's an odd number of arguments, the final condition will be treated as an
 
 In our example, the condition is `(< 0 n)`. It checks whether `0` is less than `n`. We could have added more arguments to the function `<` or `lt` (_less than_), and it would return _true_ only if they're in ascending order. Unlike other languages, there's no _more than_ function!
 
-```
+```lluna
 ? (< 0 n) (
     * n (factorial (- n 1))
 )(
@@ -140,7 +148,7 @@ If the condition is _true_, the `?` function will return the result of the expre
 
 Finally, the function `>` or _print_, outputs the returned values of its arguments to the console.
 
-```
+```lluna
 > (factorial 10)
 ```
 
@@ -153,11 +161,15 @@ Finally, the function `>` or _print_, outputs the returned values of its argumen
 
 {% include return-to-top.html %}
 
-### types and variables
+---
+
+### types
 
 > WIP
 
 {% include return-to-top.html %}
+
+---
 
 ### tables
 
@@ -173,7 +185,7 @@ Tables are constructed with square brackets `[]`. In an _array table_, items pla
 
 > String keys can omit their quotes if they start with a lower case letter and don't contain whitespace.
 
-```
+```lluna
 , top 5 languages by total number of speakers
 . languages ['English' '官话' 'हिन्दी' 'español' 'français']
 

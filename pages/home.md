@@ -4,13 +4,11 @@ permalink: /
 layout: home
 ---
 
-> #### **_lluna_** ([/ˈʎu.nə/](https://en.wiktionary.org/wiki/lluna) _lit._ moon) is a personal project that involves many _subprojects_, with the main focus on learning, minimalism and design.
+**_lluna_** ([/ˈʎu.nə/](https://en.wiktionary.org/wiki/lluna) _lit._ moon) is a personal project that involves many _subprojects_, with the main focus on **learning**, **minimalism** and **design**.
 
----
+Currently, the main subproject is **_lluna lang_**, _lluna_'s programming language:
 
-Currently, the main subproject is **_lluna lang_**, _lluna_'s programming language. Here's an example:
-
-```
+```lluna
 (
 , calculate the factorial of a number recursively
 . factorial (~ n (

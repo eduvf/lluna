@@ -3,7 +3,7 @@ title: docs
 permalink: /docs
 layout: page
 
-long-title: documentation
+long-title: lluna documentation
 ---
 
 > **This page is WIP**
